@@ -7,13 +7,47 @@
     <title>blog</title>
     <link href="estilos.css" rel="stylesheet">
     <link rel="icon" href="./images/logo-blog.png" type="image/png">
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 </head>
 
 <body>
     <header id="topo">
+        <div id="menu-secoes">
+            <a onclick="showSection('secoes')">&#128154<span class="none-underline">Seções</span></a>
+        </div>
         <img src="images/logo-blog.png" alt="Logo da turma">
         <h1>blog da turma</h1>
+        <div id="menu-links">
+            <a onclick="showSection('links')">&#128154<span class="none-underline">Links</span></a>
+        </div>
     </header>
+    
+    <div class="menu-mobile">
+        <div id="secoes" class="content">
+            <a href="#box-model">&#128154 Box Model</a>
+            <a href="#campos-modernos">&#128154 Campos Modernos</a>
+            <a href="#formularios">&#128154 Formulários</a>
+            <a href="#tabelas">&#128154 Tabelas</a>
+            <a href="#listas">&#128154 Listas</a>
+            <a href="#alinhamentos">&#128154 Espaçamentos</a>
+            <a href="#fontes">&#128154 Fontes</a>
+            <a href="#cores">&#128154 Cores</a>
+            <a href="#simbolos">&#128154 Símbolos</a>
+            <a href="#ifpi">&#128154 Sobre o IFPI</a>
+        </div>
+    
+        <div id="links" class="content">
+            <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">&#128154 HTML no MDN</a>
+            <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">&#128154 CSS no MDN</a>
+            <a href="https://www.w3schools.com/html/" target="_blank" target="_blank">&#128154 Tutorial HTML</a>
+            <a href="https://www.w3schools.com/css/" target="_blank" target="_blank">&#128154 Tutorial CSS</a>
+            <a href="https://web.dev/" target="_blank" target="_blank">&#128154 Boas práticas</a>
+            <a href="https://css-tricks.com/snippets/css/" target="_blank" target="_blank">&#128154 CSS Tricks</a>
+            <a href="https://caniuse.com/" target="_blank" target="_blank">&#128154 Can I use?</a>
+        </div>
+    </div>
+    
 
     <div id = "leiaute-flex">
     <nav>
@@ -42,7 +76,7 @@
             <p class="comprimento">comprimento</p>
             <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo">&nbsp;↑&nbsp;</a></p>
         </article>
-        <article id = "#campos-modernos">
+        <article id = "campos-modernos">
             <h2>Campos modernos</h2>
             
             <form>
@@ -386,17 +420,17 @@
     </main>
 
     <aside>
-    <ul>
-        <p><strong>Links</strong></p>
-        <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">&#128154<span class="dashed-underline">HTML no MDN</span></a></li>
-        <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">&#128154<span class="dashed-underline">CSS no MDN</span></a></li>
-        <li><a href="https://www.w3schools.com/html/" target="_blank" target="_blank">&#128154<span class="dashed-underline">Tutorial HTML - W3Schools</span></a></li>
-        <li><a href="https://www.w3schools.com/css/" target="_blank" target="_blank">&#128154<span class="dashed-underline">Tutorial CSS - W3Schools</span></a></li>
-        <li><a href="https://web.dev/" target="_blank" target="_blank">&#128154<span class="dashed-underline">Boas práticas Web.dev</span></a></li>
-        <li><a href="https://css-tricks.com/snippets/css/" target="_blank" target="_blank">&#128154<span class="dashed-underline">CSS Tricks (snippets)</span></a></li>
-        <li><a href="https://caniuse.com/" target="_blank" target="_blank">&#128154<span class="none-underline">Can I use?</span></a></li>
+        <ul>
+            <p><strong>Links</strong></p>
+            <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">&#128154<span class="dashed-underline">HTML no MDN</span></a></li>
+            <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">&#128154<span class="dashed-underline">CSS no MDN</span></a></li>
+            <li><a href="https://www.w3schools.com/html/" target="_blank" target="_blank">&#128154<span class="dashed-underline">Tutorial HTML - W3Schools</span></a></li>
+            <li><a href="https://www.w3schools.com/css/" target="_blank" target="_blank">&#128154<span class="dashed-underline">Tutorial CSS - W3Schools</span></a></li>
+            <li><a href="https://web.dev/" target="_blank" target="_blank">&#128154<span class="dashed-underline">Boas práticas Web.dev</span></a></li>
+            <li><a href="https://css-tricks.com/snippets/css/" target="_blank" target="_blank">&#128154<span class="dashed-underline">CSS Tricks (snippets)</span></a></li>
+            <li><a href="https://caniuse.com/" target="_blank" target="_blank">&#128154<span class="none-underline">Can I use?</span></a></li>
 
-      </ul>
+        </ul>
     </aside>
     </div>
     <footer id="rodape">
@@ -405,6 +439,37 @@
            Campus Teresina Central
         </p>
     </footer>     
+
+    <!-- Ajustes Mobile -->
+    <script>
+        function showSection(id) {
+            const allSections = document.querySelectorAll('.menu-mobile .content');
+            const section = document.getElementById(id);
+            
+            allSections.forEach(sec => {
+                if (sec !== section) {
+                    sec.style.display = 'none';
+                }
+            });
+    
+            // Toggle visibilidade da seção clicada
+            if (section.style.display === 'block') {
+                section.style.display = 'none';
+            } else {
+                section.style.display = 'block';
+            }
+        }
+
+        window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            document.querySelector('.menu-mobile').style.display = 'none';
+            document.querySelector('header nav').style.display = 'flex';
+        }
+        });
+
+    </script>
+    
+        
 </body>
 
 </html>
