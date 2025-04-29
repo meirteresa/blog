@@ -12,7 +12,6 @@ body {
     background: white;
     color: #2A86BF;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
     overflow-x: hidden;
 }
 
@@ -25,9 +24,56 @@ header {
     background: linear-gradient(180deg, #19A5F2 0%, white 100%);
 }
 
+header a {
+    cursor: pointer;
+}
+
+.menu-mobile {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-mobile a {
+    cursor: pointer;
+}
+
+.content {
+    display: none;
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.content a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: hsl(0, 0%, 75%);
+}
+  
+.content a:hover {
+    font-weight: semi bold;
+    background-color: none;
+    color: #04d26d;
+}
+  
+.content a.active {
+    background-color: none; /* Define a cor do fundo para o link ativo */
+    color: #04d26d; /* Define a cor do texto para o link ativo */
+    font-weight: bold;
+}
+
+.active {
+    display: block;
+}
+
 header img {
     width: 150px;
     height: auto;
+}
+
+#menu-secoes, #menu-links{
+    display: none;
 }
 
 .models-section {
@@ -59,10 +105,9 @@ footer p {
     padding: 0.5rem;
 }
 
-/* * {
+ /* * {
     outline: 1px solid red; 
-  }
-   */
+  }  */
 
 .imagem-container {
     position: relative;
@@ -367,8 +412,6 @@ form input[type="range"] {
     box-sizing: border-box;
 
 }
-  
-
 
 form input[type="submit"] {
     background-color:#A7BF4E;
@@ -490,74 +533,622 @@ form div{
 
 /* media queries */
 
-@media (max-width:991px){
-
-    html{
-        font-size: 55%;
-    }
-
-}
-
-@media (max-width: 768px) {
+@media screen and (max-width: 320px) {
     html {
-        font-size: 50%;
+        font-size: 35%;
     }
-
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    .box, article, form {
-        width: 90%;
-        margin: 0;
+    
+    body {
+        overflow-x: hidden;
     }
 
     nav, aside {
-        width: 100%;
-        padding: 1rem;
-        margin: 1rem 0;
+        display: none;
     }
 
-    .gif-topo img {
-        width: 100%;
-        max-width: 100%;
+    #menu-secoes, #menu-links{
+        display: block;
     }
 
-    .rodape {
-        height: 80px;
-        display: block; /* Para garantir que o conteúdo vai se ajustar ao contêiner */
-        width: 100%; /* Garante que a largura do rodapé seja 100% da tela */
-        padding: 0; /* Remove qualquer padding extra */
-        overflow: hidden; /* Garante que nada ultrapasse o contêiner */
+    /* #menu-links {
+        margin-left: 8px;
     }
+
+    #menu-secoes {
+        margin-right: 1px;
+    } */
 
     header {
-        width: 100%; 
-        padding: 0;
+        width: 90%; 
+        padding: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: linear-gradient(180deg, #19A5F2 0%, white 100%);
     }
+
+    header a {
+        margin-top: -10px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: #04d26d;
+    }
+      
+    header a.active {
+        background-color: none; /* Define a cor do fundo para o link ativo */
+        color: #04d26d; /* Define a cor do texto para o link ativo */
+        font-weight: bold;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .box, article, form {
+        width: 80%;
+        margin: 1rem auto;
+    }
+
+    .rodape {
+        height: 80px;
+        display: block; 
+        width: 100%; 
+        padding: 0; /* Remove qualquer padding extra */
+        overflow: hidden;
+    }
     
     header img {
-        width: 70px;
+        width: 50px;
         height: auto;
     }
 
+      
+    form label {
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+      
+    form input[type="email"],
+    form input[type="date"],
+    form input[type="color"],
+    form input[type="number"],
+    form input[type="range"] {
+        font-size: 10px;
+    }
+
+    form input[type="email"]::placeholder,
+    form input[type="date"]::placeholder,
+    form input[type="color"]::placeholder,
+    form input[type="number"]::placeholder,
+    form input[type="range"]::placeholder {
+        font-size: 10px;
+    }
+       
+    form input[type="submit"] {
+        font-size: 10px;
+        cursor: pointer;
+        width: 40%;
+        margin: 0 auto 30px auto;
+        padding: 6px;
+        display: block;
+        transition: background-color 0.3s;
+    }
+      
+    form input[type="text"] {
+        font-size: 12px; 
+        padding: 4px 8px; 
+        width: 100%;  
+        max-width: 400px; 
+    }
+      
+    form input[type="text"]::placeholder {
+        font-size: 10px; 
+    }
+      
+    form select,
+    form textarea{
+        font-size: 12px;
+    }
+      
+    .form-linha label {
+        width: 80px;
+        font-weight: bold;
+    }
+    
+    .form-linha input[type="email"],
+    .form-linha input[type="date"],
+    .form-linha input[type="number"],
+    .form-linha input[type="range"],
+    .form-linha input[type="color"] {
+        font-size: 12px;
+    }      
+
+    #ifpi img {
+        width: 15%;
+        height: 15%;
+    }
+
+    .img-y2k {
+        width: 20%;
+        height: 20%;
+    }
+
+    .menu-mobile {
+        display: block;
+        width: 90%;
+        margin: auto auto;
+    }
+}
+
+@media (max-width: 425px) {
+    html {
+        font-size: 55%;
+    }
+    
+    body {
+        overflow-x: hidden;
+    }
+
+    nav, aside {
+        display: none;
+    }
+
+    #menu-secoes, #menu-links{
+        display: block;
+    }
+
+    #menu-links {
+        margin-left: 8px;
+    }
+
+    #menu-secoes {
+        margin-right: 1px;
+    }
+
+    header {
+        width: 90%; 
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, #19A5F2 0%, white 100%);
+    }
+
+    header a {
+        margin-top: -10px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: #04d26d;
+    }
+      
+    header a.active {
+        background-color: none; /* Define a cor do fundo para o link ativo */
+        color: #04d26d; /* Define a cor do texto para o link ativo */
+        font-weight: bold;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .box, article, form {
+        width: 80%;
+        margin: 1rem auto;
+    }
+
+    .rodape {
+        height: 80px;
+        display: block; 
+        width: 100%; 
+        padding: 0; /* Remove qualquer padding extra */
+        overflow: hidden;
+    }
+    
+    header img {
+        width: 50px;
+        height: auto;
+    }
+
+      
+    form label {
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+      
+    form input[type="email"],
+    form input[type="date"],
+    form input[type="color"],
+    form input[type="number"],
+    form input[type="range"] {
+        font-size: 10px;
+    }
+
+    form input[type="email"]::placeholder,
+    form input[type="date"]::placeholder,
+    form input[type="color"]::placeholder,
+    form input[type="number"]::placeholder,
+    form input[type="range"]::placeholder {
+        font-size: 10px;
+    }
+       
+    form input[type="submit"] {
+        font-size: 10px;
+        cursor: pointer;
+        width: 40%;
+        margin: 0 auto 30px auto;
+        padding: 6px;
+        display: block;
+        transition: background-color 0.3s;
+    }
+      
+    form input[type="text"] {
+        font-size: 12px; 
+        padding: 4px 8px; 
+        width: 100%;  
+        max-width: 400px; 
+    }
+      
+    form input[type="text"]::placeholder {
+        font-size: 10px; 
+    }
+      
+    form select,
+    form textarea{
+        font-size: 12px;
+    }
+      
+    .form-linha label {
+        width: 80px;
+        font-weight: bold;
+    }
+    
+    .form-linha input[type="email"],
+    .form-linha input[type="date"],
+    .form-linha input[type="number"],
+    .form-linha input[type="range"],
+    .form-linha input[type="color"] {
+        font-size: 12px;
+    }      
+
+    #ifpi img {
+        width: 20%;
+        height: 20%;
+    }
+
+    .img-y2k {
+        width: 20%;
+        height: 20%;
+    }
+
+    .menu-mobile {
+        display: block;
+        width: 90%;
+        margin: auto auto;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 60%;
+    }
+    
+    body {
+        overflow-x: hidden;
+    }
+
+    nav, aside {
+        display: none;
+    }
+
+    #menu-secoes, #menu-links{
+        display: block;
+    }
+
+    #menu-links {
+        margin-left: 8px;
+    }
+
+    #menu-secoes {
+        margin-right: 1px;
+    }
+
+    header {
+        width: 90.6%; 
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, #19A5F2 0%, white 100%);
+    }
+
+    header a {
+        margin-top: -10px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: #04d26d;
+        font-size: 10px;
+    }
+      
+    header a.active {
+        background-color: none; /* Define a cor do fundo para o link ativo */
+        color: #04d26d; /* Define a cor do texto para o link ativo */
+        font-weight: bold;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .box, article, form {
+        width: 80%;
+        margin: 1rem auto;
+    }
+
+    .rodape {
+        height: 80px;
+        display: block; 
+        width: 100%; 
+        padding: 0; /* Remove qualquer padding extra */
+        overflow: hidden;
+    }
+    
+    header img {
+        width: 50px;
+        height: auto;
+    }
+
+      
+    form label {
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+      
+    form input[type="email"],
+    form input[type="date"],
+    form input[type="color"],
+    form input[type="number"],
+    form input[type="range"] {
+        font-size: 10px;
+    }
+
+    form input[type="email"]::placeholder,
+    form input[type="date"]::placeholder,
+    form input[type="color"]::placeholder,
+    form input[type="number"]::placeholder,
+    form input[type="range"]::placeholder {
+        font-size: 10px;
+    }
+       
+    form input[type="submit"] {
+        font-size: 10px;
+        cursor: pointer;
+        width: 40%;
+        margin: 0 auto 30px auto;
+        padding: 6px;
+        display: block;
+        transition: background-color 0.3s;
+    }
+      
+    form input[type="text"] {
+        font-size: 12px; 
+        padding: 4px 8px; 
+        width: 100%;  
+        max-width: 400px; 
+    }
+      
+    form input[type="text"]::placeholder {
+        font-size: 10px; 
+    }
+      
+    form select,
+    form textarea{
+        font-size: 12px;
+    }
+      
+    .form-linha label {
+        width: 80px;
+        font-weight: bold;
+    }
+    
+    .form-linha input[type="email"],
+    .form-linha input[type="date"],
+    .form-linha input[type="number"],
+    .form-linha input[type="range"],
+    .form-linha input[type="color"] {
+        font-size: 12px;
+    }      
+
+    #ifpi img {
+        width: 20%;
+        height: 20%;
+    }
+
+    .img-y2k {
+        width: 20%;
+        height: 20%;
+    }
+
+    .menu-mobile {
+        display: block;
+        width: 90%;
+        margin: auto auto;
+    }
+
+    .menu-mobile a {
+        cursor: pointer;
+    }
     
 }
 
+@media (max-width: 1024px) {
+    html {
+        font-size: 90%;
+    }
+    
+    body {
+        overflow-x: hidden;
+    }
 
+    nav, aside {
+        display: none;
+    }
 
-@media (max-width:450px){
+    #menu-secoes, #menu-links{
+        display: block;
+    }
 
-    html{
-        font-size: 50%;
+    #menu-links {
+        margin-left: 20px;
+    }
+
+    #menu-secoes {
+        margin-right: 10px;
+    }
+
+    header {
+        width: 94.8%; 
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, #19A5F2 0%, white 100%);
+    }
+
+    header a {
+        margin-top: -10px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: #04d26d;
+        font-size: 18px;
+    }
+      
+    header a.active {
+        background-color: none; /* Define a cor do fundo para o link ativo */
+        color: #04d26d; /* Define a cor do texto para o link ativo */
+        font-weight: bold;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .box, article, form {
+        width: 80%;
+        margin: 1rem auto;
+    }
+
+    .rodape {
+        height: 80px;
+        display: block; 
+        width: 100%; 
+        padding: 0; /* Remove qualquer padding extra */
+        overflow: hidden;
+    }
+    
+    header img {
+        width: 90px;
+        height: auto;
+    }
+
+      
+    form label {
+        font-weight: bold;
+        margin-bottom: 4px;
+    }
+      
+    form input[type="email"],
+    form input[type="date"],
+    form input[type="color"],
+    form input[type="number"],
+    form input[type="range"] {
+        font-size: 10px;
+    }
+
+    form input[type="email"]::placeholder,
+    form input[type="date"]::placeholder,
+    form input[type="color"]::placeholder,
+    form input[type="number"]::placeholder,
+    form input[type="range"]::placeholder {
+        font-size: 10px;
+    }
+       
+    form input[type="submit"] {
+        font-size: 10px;
+        cursor: pointer;
+        width: 40%;
+        margin: 0 auto 30px auto;
+        padding: 6px;
+        display: block;
+        transition: background-color 0.3s;
+    }
+      
+    form input[type="text"] {
+        font-size: 12px; 
+        padding: 4px 8px; 
+        width: 100%;  
+        max-width: 400px; 
+    }
+      
+    form input[type="text"]::placeholder {
+        font-size: 10px; 
+    }
+      
+    form select,
+    form textarea{
+        font-size: 12px;
+    }
+      
+    .form-linha label {
+        width: 80px;
+        font-weight: bold;
+    }
+    
+    .form-linha input[type="email"],
+    .form-linha input[type="date"],
+    .form-linha input[type="number"],
+    .form-linha input[type="range"],
+    .form-linha input[type="color"] {
+        font-size: 12px;
+    }      
+
+    #ifpi img {
+        width: 20%;
+        height: 20%;
+    }
+
+    .img-y2k {
+        width: 20%;
+        height: 20%;
+    }
+
+    .menu-mobile {
+        display: block;
+        width: 90%;
+        margin: auto auto;
+    }
+
+    .menu-mobile a {
+        cursor: pointer;
     }
     
 }
